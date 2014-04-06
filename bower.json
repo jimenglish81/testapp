@@ -1,0 +1,21 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "authors": [
+    "jim"
+  ],
+  "description": "test app",
+  "main": "scripts/main.js",
+  "private": true,
+  "dependencies": {
+    "jquery": "latest",
+    "requirejs": "latest"
+  },
+  "devDependencies": {
+  },
+  "ignore": [
+    "**/.*",
+    "scripts/vendor",
+    "build"
+  ]
+}
