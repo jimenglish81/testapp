@@ -1,0 +1,20 @@
+{
+  "name": "testapp",
+  "version": "1.0.0",
+  "description": "test app",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jimenglish81/testapp.git"
+  },
+  "author": "jim",
+  "gitHead": "d46d31561438616c80ec981e87610cf3acfeb2f8",
+  "readmeFilename": "README.md",
+  "bugs": {
+    "url": "https://github.com/jimenglish81/testapp/issues"
+  },
+  "devDependencies": {
+    "grunt-contrib-requirejs": "~0.4.3",
+    "grunt-cli": "~0.1.13"
+  }
+}
