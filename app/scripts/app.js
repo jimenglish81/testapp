@@ -1,4 +1,4 @@
-define(['jquery'], function(jquery) {
+define(function() {
    function App() {
       this._initialise();
    }
