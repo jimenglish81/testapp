@@ -1,0 +1,14 @@
+#############
+## Mac
+#############
+.DS_Store
+
+#############
+## Other
+#############
+.idea/
+node_modules/
+logs/
+.sass-cache/
+bower_components/
+dist/
