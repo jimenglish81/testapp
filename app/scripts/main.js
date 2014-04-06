@@ -8,9 +8,9 @@ require.config({
 require(['app'], function(App) {
    // TODO - app dynamically get its modules
    (new App());
-
-    // TODO - only required here to demonstrate lazy loading
-	require(['aComponent'], function(aComponent) {
-		(new aComponent()).render();
-	});
+   
+   // TODO - only required here to demonstrate lazy loading
+   require(['aComponent'], function(aComponent) {
+      (new aComponent()).render();
+   });
 });
