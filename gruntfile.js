@@ -52,13 +52,60 @@ module.exports = function(grunt) {
                }
             }
          }
+      },
+      bower: {
+         install: {
+            options: {
+               layout: function(type, component) {
+                  console.log('installing:', component, ' of type ', type);
+                  return component;
+               },
+               cleanup: true,
+               targetDir: 'app/scripts/vendor'
+            }
+         }
+      },
+      clean: {
+         build: {
+            src: [ 
+               'lib',
+               'dist/build.txt',
+               'npm-debug.log'
+            ]
+         }
+      },
+      uglify: {
+         build: {
+            options: {
+              banner: '/*! <%= pkg.name %> - v<%= pkg.version %> - ' +
+                '<%= grunt.template.today("yyyy-mm-dd") %> */'
+            },
+            target: {
+               files: [{
+                  expand: true,
+                  src: ['**/*.js'],
+                  dest: 'dist/',
+                  cwd: 'dist/',
+                  ext: '.min.js',
+                  extDot: 'first'
+               }]
+            }
+         }
       }
    });
 
-   // Load the plugin that provides the "require task" task.
+   // Load tasks
    grunt.loadNpmTasks('grunt-contrib-requirejs');
-
+   grunt.loadNpmTasks('grunt-contrib-uglify');
+   grunt.loadNpmTasks('grunt-bower-task');
+   grunt.loadNpmTasks('grunt-contrib-clean');
+   
    // Default task(s).
-   grunt.registerTask('default', ['requirejs']);
+   grunt.registerTask('default', [
+      'bower:install', 
+      'requirejs:compile', 
+      'clean:build',
+      'uglify:build'
+   ]);
 
 };

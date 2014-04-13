@@ -1,6 +1,6 @@
 require.config({
    paths: {
-      "jquery": "vendor/jquery/dist/jquery",
+      "jquery": "vendor/jquery/jquery",
       "aComponent": "modules/component"
    }
 })
