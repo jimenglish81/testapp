@@ -1,3 +1,4 @@
 TODO
 
-to install dependencies and build run ./app/build/build.sh from root
+to install run... 
+'npm install' on root then run 'grunt'
