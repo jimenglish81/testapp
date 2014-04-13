@@ -7,7 +7,7 @@ module.exports = function(grunt) {
          compile: {
             options: {
 	            // build dir
-         	   dir: "dist",
+         	   dir: 'dist/scripts',
          	   // where is the main require file
          	   mainConfigFile: "app/scripts/main.js",
          	   optimize: "none",
@@ -69,8 +69,10 @@ module.exports = function(grunt) {
          build: {
             src: [ 
                'lib',
-               'dist/build.txt',
-               'npm-debug.log'
+               'npm-debug.log',
+               'dist/**/*',
+               '!dist/scripts/**',
+               'dist/scripts/build.txt'
             ]
          }
       },
@@ -84,13 +86,19 @@ module.exports = function(grunt) {
                files: [{
                   expand: true,
                   src: ['**/*.js'],
-                  dest: 'dist/',
-                  cwd: 'dist/',
+                  dest: 'dist/scripts/',
+                  cwd: 'dist/scripts/',
                   ext: '.min.js',
                   extDot: 'first'
                }]
             }
          }
+      },
+      copy: {
+        main: {
+          src: 'app/index.html',
+          dest: 'dist/index.html',
+        }
       }
    });
 
@@ -99,13 +107,15 @@ module.exports = function(grunt) {
    grunt.loadNpmTasks('grunt-contrib-uglify');
    grunt.loadNpmTasks('grunt-bower-task');
    grunt.loadNpmTasks('grunt-contrib-clean');
+   grunt.loadNpmTasks('grunt-contrib-copy');
    
    // Default task(s).
    grunt.registerTask('default', [
       'bower:install', 
-      'requirejs:compile', 
+      'requirejs:compile',
       'clean:build',
-      'uglify:build'
+      'uglify:build',
+      'copy:main'
    ]);
 
 };
