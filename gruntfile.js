@@ -6,17 +6,14 @@ module.exports = function(grunt) {
   	   requirejs: {
          compile: {
             options: {
-	            // main app directory - go up one
-	            //build dir
+	            // build dir
          	   dir: "dist",
          	   // where is the main require file
          	   mainConfigFile: "app/scripts/main.js",
-         	   //name: "main",
          	   optimize: "none",
          	   modules: [
          	      {
          	         name: "main",
-
          	         // modules that are not included by main, but may want to front end load as they are commonly used.
          	         include: [
          	            "jquery"
