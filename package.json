@@ -17,6 +17,6 @@
     "grunt-contrib-requirejs": "~0.4.3",
     "grunt-cli": "~0.1.13",
     "grunt": "~0.4.4",
-    "grunt-contrib-sass": "~0.7.3"
+    "rjs-build-analysis": "0.0.3"
   }
 }
